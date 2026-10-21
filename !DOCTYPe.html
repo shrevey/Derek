@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DEREK IS HERE</title>
+  <style>
+    body { font-family: Comic Sans MS, cursive; background: #ff69b4; color: white; text-align: center; }
+    h1 { font-size: 100px; animation: pulse 1s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+    img { width: 300px; border: 10px solid yellow; border-radius: 50%; }
+  </style>
+</head>
+<body>
+
+<h1>DEREK</h1>
+<img src="https://i.imgur.com/0Z8o7rK.png" alt="Derek"> <!-- you can change the image -->
+<p id="message"></p>
+
+<script>
+// ★☆★ THE LEGENDARY DEREK SCRIPT ★☆★
+const derekQuotes = [
+  "I am Derek.",
+  "Derek is unstoppable.",
+  "Bow down to Derek.",
+  "Derek loves lasagna.",
+  "Derek has entered the chat.",
+  "Nobody escapes Derek.",
+  "Derek approves this message.",
+  "DEREK DEREK DEREK",
+  "Have you seen Derek today?",
+  "Derek knows what you did last summer."
+];
+
+let derekCount = 0;
+
+function derekAttack() {
+  // Change page title
+  document.title = "DEREK " + "💪".repeat(derekCount);
+
+  // Random quote
+  const randomQuote = derekQuotes[Math.floor(Math.random() * derekQuotes.length)];
+  document.getElementById("message").innerHTML = "<h2>" + randomQuote + "</h2>";
+
+  // Make more Dereks appear
+  const newDerek = document.createElement("h1");
+  newDerek.textContent = "DEREK";
+  newDerek.style.position = "absolute";
+  newDerek.style.left = Math.random() * 90 + "vw";
+  newDerek.style.top = Math.random() * 90 + "vh";
+  newDerek.style.transform = "rotate(" + Math.random()*360 + "deg)";
+  newDerek.style.fontSize = "60px";
+  newDerek.style.color = "yellow";
+  document.body.appendChild(newDerek);
+
+  derekCount++;
+  
+  // Play annoying sound (if you want even more chaos)
+  // const audio = new Audio("https://www.soundjay.com/buttons/beep-01a.mp3");
+  // audio.play();
+}
+
+// DEREK ATTACKS EVERY 1 SECOND
+setInterval(derekAttack, 800);
+
+// When you try to close the tab… Derek fights back!
+window.addEventListener("beforeunload", function(e) {
+  e.preventDefault();
+  e.returnValue = "Derek does not allow you to leave.";
+  alert("DEREK SAYS NO!!!");
+});
+
+// Click anywhere = more Derek
+document.body.addEventListener("click", () => {
+  document.body.style.background = ["red","lime","cyan","magenta","yellow"][Math.floor(Math.random()*5)];
+  new Audio("https://www.soundjay.com/human/fart-01.mp3").play().catch(()=>{}); // optional fart
+});
+
+</script>
+
+</body>
+</html>
